@@ -13,19 +13,22 @@
 # Exemplos
 # A tabela abaixo apresenta exemplos com alguns dados de entrada e suas respectivas saídas esperadas. Certifique-se de testar seu programa com esses exemplos e com outros casos possíveis.
 #
-# Entrada	Saída
+# Entrada
 # 101 102 103 104
 # 102 105 101 103
+# Saída
 # Reservas confirmadas: 102 101 103
 # Reservas recusadas: 105
 
 # 201 202 203 204 205
 # 205 202 208 201 203
+# Saída
 # Reservas confirmadas: 205 202 201 203
 # Reservas recusadas: 208
 
 # 10 20 30 40 50
 # 25 30 10 40 50 60
+# Saída
 # Reservas confirmadas: 30 10 40 50
 # Reservas recusadas: 25 60
 
