@@ -30,6 +30,7 @@
 
 from datetime import datetime
 
+
 class Veiculo:
     def __init__(self, marca, modelo, ano):
         self.marca = marca
@@ -43,6 +44,7 @@ class Veiculo:
             return "Veículo antigo"
         else:
             return "Veículo novo"
+
 
 # Entrada direta
 marca = input("Informe a marca: ").strip().title()
