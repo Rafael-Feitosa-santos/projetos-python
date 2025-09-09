@@ -75,8 +75,8 @@ while op != 4:
             print(f"Peso: {calculo:.0f} kg \n")
 
         elif op == 3:
-            diametro_maior = validar_entrada(input("Insira o diâmetro maior: "))
             diametro_menor = validar_entrada(input("Insira o diâmetro menor: "))
+            diametro_maior = validar_entrada(input("Insira o diâmetro maior: "))
             espessura = validar_entrada(input("Insira a espessura: "))
             pecas = int(input("Quantidade de peças: "))
             tamanho_peca = 6
