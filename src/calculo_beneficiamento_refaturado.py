@@ -60,19 +60,17 @@ def main():
                 print("🚀 Sistema finalizado!")
                 break
 
-
             if op not in opcoes:
                 print("\n❌ Opção inválida. Tente novamente.\n")
                 continue
-
 
             tamanho_peca = 6
 
             limpar_tela()
 
             if op == 3:
-                diametro_maior = validar_entrada(input("Insira o diâmetro maior: "))
                 diametro_menor = validar_entrada(input("Insira o diâmetro menor: "))
+                diametro_maior = validar_entrada(input("Insira o diâmetro maior: "))
                 espessura = validar_entrada(input("Insira a espessura: "))
                 pecas = int(input("Quantidade de peças: "))
                 comprimento = pecas * tamanho_peca
