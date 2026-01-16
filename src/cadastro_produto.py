@@ -29,7 +29,7 @@ def cadastro():
     for i in range(quantidade):
         nome = input(f"Digite o nome da pessoa {i + 1}: ").title().strip()
         produto = input(f"Digite o produto de {nome}: ").title().strip()
-        data_hora = datetime.now(ZoneInfo("America/Sao_Paulo")).strftime("%H:%M:%S - %d/%m/%Y")
+        data_hora = datetime.now(ZoneInfo("America/Sao_Paulo")).strftime("%H:%M - %d/%m/%Y")
         clientes[nome] = {"produto": produto, "data_hora": data_hora}
 
     barra_progresso("Efetuando o cadastro..")
