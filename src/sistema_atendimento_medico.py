@@ -47,9 +47,9 @@ try:
     pacientes = []
 
     for i in range(n):
-        linha = input("Informe o nome, idade, status: ").strip().title()
-        nome, idade, status = linha.split(", ")
-        idade = int(idade)
+        nome = input("Informe o nome: ").strip().title()
+        idade = int(input("Informe a idade: "))
+        status = input("Informe o status: ")
         pacientes.append((i, nome, idade, status))
 
     urgentes = []
