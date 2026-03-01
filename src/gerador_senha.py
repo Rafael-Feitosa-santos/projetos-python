@@ -9,8 +9,8 @@ def gerador_senha(tamanho):
 
 
 try:
-    quantidade_digitos = input("Informe quantos caracteres tenha a senha: ")
-    gerador_senha(int(quantidade_digitos))
+    quantidade_digitos = int(input("Informe quantos caracteres tenha a senha: "))
+    gerador_senha(quantidade_digitos)
 
 except ValueError:
     print("Entrada inválida!")
