@@ -15,7 +15,7 @@ TRADUCOES = {
 
 def clima(cidade):
     url = f"http://wttr.in/{cidade}?format=j1&lang=pt"
-    resposta = requests.get(url, timeout=8)
+    resposta = requests.get(url, timeout=6)
     resposta.raise_for_status()
 
     try:
