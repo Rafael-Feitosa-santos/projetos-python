@@ -19,7 +19,7 @@
 # suco suco agua agua agua	agua
 
 
-produtos = input("Insira o produto: ").strip().split()
+produtos = input("Insira os produtos: ").strip().split()
 
 mais_frequente = ""
 maior_contagem = 0
