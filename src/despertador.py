@@ -33,6 +33,8 @@ def entrada_dados():
 
     except ValueError:
         print("Entrada inválida")
+    except KeyboardInterrupt:
+        print("\nPrograma finalizado pelo usuário!")
 
 
 entrada_dados()
