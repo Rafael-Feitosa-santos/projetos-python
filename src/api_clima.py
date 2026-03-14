@@ -1,3 +1,5 @@
+import sys
+
 import requests
 
 TRADUCOES = {
@@ -9,7 +11,9 @@ TRADUCOES = {
     "Light rain": "Chuva leve",
     "Heavy rain": "Chuva forte",
     "Snow": "Neve",
-    "Fog": "Névoa"
+    "Fog": "Névoa",
+    "Patchy rain nearby": "Chuvas esporádicas nas proximidades"
+
 }
 
 
@@ -40,5 +44,24 @@ def clima(cidade):
         print(f"Erro ao buscar dados: {erro}")
 
 
-cidade = input("Informe o local que deseja verificar o tempo: ")
-clima(cidade)
+executando = True
+
+while executando:
+    try:
+        cidade = input("Informe o local que deseja verificar o tempo: ")
+        clima(cidade)
+
+        while True:
+            sair = input("\nDeseja vê outro lugar?(S/N): ").upper()
+            if sair == "N":
+                print(" ==== Sistema finalizado! ====")
+                executando = False
+                break
+            elif sair == "S":
+                break
+            else:
+                print("Opção inválida! Digite apenas S ou N.")
+
+    except KeyboardInterrupt:
+        print("\n >>>> Sistema finalizado pelo usuario! <<<<")
+        break
