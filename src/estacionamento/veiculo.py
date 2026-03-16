@@ -1,6 +1,8 @@
 from math import ceil
 from datetime import datetime
 
+from utils import pausar
+
 
 class Veiculo:
     preco_hora = 10
@@ -55,4 +57,4 @@ class Veiculo:
 
         print("-------------------------\n")
 
-        input("Pressione ENTER para continuar...")
+        pausar()

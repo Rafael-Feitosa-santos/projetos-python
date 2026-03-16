@@ -1,6 +1,7 @@
 import os
 
 from veiculo import Veiculo
+from utils import pausar
 
 
 class Estacionamento:
@@ -14,13 +15,13 @@ class Estacionamento:
 
         if len(placa) != 7:
             print("Placa inválida! Deve conter 7 caracteres.")
-            input("Pressione ENTER para continuar...")
+            pausar()
             return
 
         for veiculo in self.veiculos.values():
             if veiculo.placa == placa:
                 print("Veiculo com essa placa já está no estacionamento!")
-                input("Pressione ENTER para continuar..")
+                pausar()
                 return
 
         veiculo = Veiculo(placa, self.ticket)
@@ -34,14 +35,13 @@ class Estacionamento:
 
         if entrada == "0" or entrada == "":
             print("Operação cancelada")
-            input("Pressione ENTER para continuar...")
             return
 
         try:
             ticket = int(entrada)
         except ValueError:
             print("Entrada inválida")
-            input("Pressione ENTER para continuar...")
+            pausar()
             return
 
         if ticket in self.veiculos:
@@ -66,4 +66,4 @@ class Estacionamento:
                 print(
                     f"Ticket: {ticket} | Placa: {veiculo.placa[0:3]}-{veiculo.placa[3:]} | Entrada: {veiculo.entrada.strftime('%H:%M:%S')}")
 
-        input("\nPressione ENTER para voltar ao menu...")
+        pausar()
