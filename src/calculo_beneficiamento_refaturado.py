@@ -20,6 +20,13 @@ def validar_entrada(valor):
     return float(valor.replace(",", "."))
 
 
+def formatacao_peso(calculo):
+    if calculo > 1000:
+        print(f"⚖️  Peso: {calculo:,.0f} kg ✅\n".replace(",", "."))
+    else:
+        print(f"⚖️  Peso: {calculo:,.0f} kg ✅\n")
+
+
 def obter_comprimento_total(pecas):
     entrada = input("Comprimento da peça em metros (ENTER = 6m): ")
 
@@ -70,7 +77,7 @@ def menu():
     time.sleep(0.5)
     print()
     print("#####################################")
-    print("📏 Cálculo de beneficiamento".center(33).title())
+    print("📏  Cálculo de beneficiamento".center(33).title())
     print("#####################################\n")
 
     print("Escolha a opção desejada:\n")
@@ -100,8 +107,6 @@ def main():
                 print("\n❌ Opção inválida. Tente novamente.\n")
                 continue
 
-            tamanho_peca = 6
-
             limpar_tela()
 
             if op == 3:
@@ -127,8 +132,9 @@ def main():
 
                 calculo = opcoes[op](diametro, espessura, comprimento)
 
-            print(f"\n📏 Total de metros: {comprimento:.2f} mts")
-            print(f"⚖️ Peso: {calculo:.0f} kg ✅\n")
+            print(f"\n📏  Total de metros: {comprimento:.2f} mts")
+
+            print(formatacao_peso(calculo))
 
             voltar_ao_menu_principal()
 
