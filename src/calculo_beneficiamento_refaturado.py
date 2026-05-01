@@ -134,7 +134,7 @@ def main():
 
             print(f"\n📏  Total de metros: {comprimento:.2f} mts")
 
-            print(formatacao_peso(calculo))
+            formatacao_peso(calculo)
 
             voltar_ao_menu_principal()
 
