@@ -50,13 +50,14 @@ while True:
         numero = input("\nInforme o número do endereço: ")
         complemento = input("Informe o complemento (caso não haja, pressione Enter): ").title().strip()
 
+        print("\n================ Consulta de Endereço  ================")
         print("\nEndereço completo:")
         print(f"Logradouro: {logradouro}")
-        print(f"Número: {numero}")
-        if complemento:
-            print(f"Complemento: {complemento}")
-        print(f"Bairro: {bairro}")
+        print(f"Número: {numero if numero else "s/n"}")
+        print(f"Complemento: {complemento if complemento else "s/n"}")
+        print(f"Bairro: {bairro if bairro else "s/n"}")
         print(f"Cidade: {resultado['localidade']}")
         print(f"Estado: {resultado['uf']}")
+        print("=======================================================")
     else:
         print("Erro na consulta do CEP. Tente novamente.")
