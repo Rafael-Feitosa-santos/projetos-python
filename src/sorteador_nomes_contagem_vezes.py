@@ -11,6 +11,8 @@ for i in range(total_sorteios):
     contagem[sorteado] += 1
     print(f"{i + 1}º sorteado foi: {sorteado}")
 
+
 print("\nContagem de sorteios:")
-for nome, vezes in contagem.items():
+# ordena pelo número de vezes em ordem decrescente
+for nome, vezes in sorted(contagem.items(), key=lambda x: x[1], reverse=True):
     print(f"{nome}: {vezes} vez(es)")
