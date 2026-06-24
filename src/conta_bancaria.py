@@ -1,3 +1,6 @@
+import os
+import sys
+import time
 from datetime import datetime, timedelta
 
 
@@ -8,9 +11,28 @@ def horario_brasilia():
     return horario_brasilia_formataca
 
 
-
 def validar_entrada(valor):
     return float(valor.replace(",", "."))
+
+
+def limpar_tela():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
+def barra_progresso(texto, duracao=2):
+    print(texto)
+    for i in range(21):
+        time.sleep(duracao / 20)
+        sys.stdout.write("\r[" + "#" * i + "-" * (20 - i) + f"] {i * 5}%")
+        sys.stdout.flush()
+    print("\n")
+
+
+def voltar_ao_menu_principal():
+    input('Tecle ENTER para voltar ao menu!')
+    limpar_tela()
+    barra_progresso("Carregando menu...")
+    limpar_tela()
 
 
 def formatacao_valor(valor):
@@ -47,18 +69,20 @@ while True:
         opcao = int(input("Informe a operação que deseja fazer: "))
 
         if opcao == 1:
+            limpar_tela()
             valor = validar_entrada(input("Informe o valor que deseja depositar: "))
 
             if valor > 0:
                 saldo += valor
-                if valor > 1000:
-                    extrato += f"Depósito de R$ {formatacao_valor(valor)} - {horario_brasilia()}\n"
-                else:
-                    extrato += f"Depósito de R$ {formatacao_valor(valor)} - {horario_brasilia()}\n"
+                extrato += f"Depósito de R$ {formatacao_valor(valor)} - {horario_brasilia()}\n"
+                print("Depósito realizado com sucesso!!")
             else:
                 print("\033[31mOperação falhou! O valor informado é inválido.\033[0m")
 
+            voltar_ao_menu_principal()
+
         elif opcao == 2:
+            limpar_tela()
             valor = validar_entrada(input("Informe o valor que deseja sacar: "))
 
             excedeu_saque = numero_saques >= LIMITE_SAQUES
@@ -76,26 +100,29 @@ while True:
 
             elif valor > 0:
                 saldo -= valor
-                if valor > 1000:
-                    extrato += f"Saque de - R$ {formatacao_valor(valor)} - {horario_brasilia()}\n"
-                else:
-                    extrato += f"Saque de - R$ {formatacao_valor(valor)} - {horario_brasilia()}\n"
-
+                extrato += f"Saque de - R$ {formatacao_valor(valor)} - {horario_brasilia()}\n"
                 numero_saques += 1
+                print("Saque realizado com sucesso!!")
             else:
                 print("\033[31mOperação falhou! O valor informado é inválido.\033[0m")
 
+            voltar_ao_menu_principal()
+
         elif opcao == 3:
+            limpar_tela()
+            barra_progresso("Emitindo extrato..")
+            limpar_tela()
+
             print()
             print(" Extrato ".center(50, "*"))
             print("Não foram realizadas movimentações." if not extrato else extrato)
-            if saldo > 1000:
-                print(f"\nSaldo: R$ {formatacao_valor(saldo)}")
-            else:
-                print(f"\nSaldo: R$ {formatacao_valor(saldo)}")
+            print(f"\nSaldo: R$ {formatacao_valor(saldo)}")
             print("".center(50, "*"))
 
+            voltar_ao_menu_principal()
+
         elif opcao == 4:
+            limpar_tela()
             print("Saindo do sistema.")
             break
 
@@ -107,4 +134,6 @@ while True:
         break
 
     except ValueError:
+        limpar_tela()
         print("\033[31mEntrada inválida! Por favor, insira um número.\033[0m")
+        voltar_ao_menu_principal()
