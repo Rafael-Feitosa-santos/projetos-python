@@ -1,0 +1,15 @@
+import time
+from plyer import notification
+
+
+def lembrete():
+    notification.notify(
+        title="Já se hidatou hoje?",
+        message="Hora de beber água 💧",
+        timeout=10
+    )
+
+
+while True:
+    lembrete()
+    time.sleep(3600)
